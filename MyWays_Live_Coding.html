@@ -1,0 +1,46 @@
+<!MyWays_Live_Coding_SathyaNarayana>
+<html>
+<head>
+<title>User Form</title> 
+</head>
+<body>
+<form id="User_form">
+<label for="Name:</label>
+<input type="text" id="name" Mandatory>
+<label for="Email">Email:</label>
+<input type="Email" id="Email" Mandatory>
+<label for="location"> Location:</label>
+<input type="text" id="location" Mandatory>
+<button type="submit">Submit</button>
+<script>
+const form=document.getElementById('user-form;);
+form.addEventListner('submit', async(e)=>{
+e.preventDefault();
+
+const Name=document.getElementById('name').value;
+const Email=document.getElementById('Email').value;
+const location=document.getElementById('location').value;
+
+const response= await fetch('https://test-api-v3.myways.ai/user?email=');
+const data = await response.json();
+
+if(data.exists){
+alret("User found")
+}
+else{
+const response = await fetch('https://test-api-v3.myways.ai/user',
+{
+method: 'POST',
+headers: {
+'Content-Type:'application/json"'
+},
+body: JSON.stringfy({
+name, 
+email, 
+location,
+})
+});
+alert('User Created Successfully');
+</script>
+</body>
+</html>
